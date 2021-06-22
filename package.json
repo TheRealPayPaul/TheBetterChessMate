@@ -1,0 +1,25 @@
+{
+  "name": "chessmate",
+  "version": "0.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "c-dev": "vite",
+    "c-build": "vue-tsc --noEmit && vite build",
+    "c-serve": "vite preview",
+    
+    "s-dev": "nodemon --watch server --exec npx ts-node server/main.ts",
+    "s-build": "tsc -p ./tsconfig.server.json",
+    "s-run": "node server/build/main.js"
+  },
+  "dependencies": {
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.5",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.3.7",
+    "vue-tsc": "^0.0.24"
+  }
+}
