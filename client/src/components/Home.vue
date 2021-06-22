@@ -9,6 +9,7 @@
         <label for="username">Username</label>
         <input class="inp" id="username" name="username" type="text">
       </div>
+      <hr>
       <div class="input-wrapper">
         <label for="lobby-code">Lobby Code</label>
         <input class="inp" id="lobby-code" name="lobby-code" type="text">
@@ -27,6 +28,8 @@
       <p>Created by</p>
       <a href="https://github.com/f2hafner" target="blank">f2hafner</a>
       <a href="https://github.com/TheRealPayPaul" target="blank">TheRealPayPaul</a>
+      <br>
+      <p>© 2021</p>
     </section>
   </div>
 </template>
@@ -95,5 +98,13 @@ export default defineComponent({
   #contributors {
     color: gray;
     margin: 3rem 0;
+  }
+
+  hr {
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    border: black solid 1px;
+    border-radius: 1rem;
   }
 </style>
