@@ -9,5 +9,5 @@ console.log(test);
 console.log("hi");
 
 function y(per: person) {
-
+    console.log(per);
 }

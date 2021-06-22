@@ -6,7 +6,6 @@
     "c-dev": "vite",
     "c-build": "vue-tsc --noEmit && vite build",
     "c-serve": "vite preview",
-    
     "s-dev": "nodemon --watch server --exec npx ts-node server/main.ts",
     "s-build": "tsc -p ./tsconfig.server.json",
     "s-run": "node server/build/main.js"

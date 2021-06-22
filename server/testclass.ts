@@ -2,6 +2,6 @@ export default
 
 class {
     public what() {
-        console.log("Say what");
+        console.log("Say what!");
     }
 }
