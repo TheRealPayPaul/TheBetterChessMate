@@ -6,13 +6,13 @@
     </header>
     <section id="lobby-join">
       <div class="input-wrapper">
-        <label for="username">Username</label>
-        <input class="inp" id="username" name="username" type="text">
+        <input class="inp" name="username" v-model="values[0]" @input="updateCss(0)" type="text">
+        <span class="label" :class="{ small_label: small_labels[0] }">Username</span>
       </div>
       <hr>
       <div class="input-wrapper">
-        <label for="lobby-code">Lobby Code</label>
-        <input class="inp" id="lobby-code" name="lobby-code" type="text">
+        <input class="inp" name="lobby_code" v-model="values[1]" @input="updateCss(1)" type="text">
+        <span class="label" :class="{ small_label: small_labels[1] }">Lobby Code</span>
       </div>
       <div class="btn-wrapper">
         <button class="btn">Join Lobby</button>
@@ -39,8 +39,26 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'Home',
   data: () => ({
-    title: 'Home'
-  })
+    small_labels: [
+      false, // Username
+      false // Lobby Code
+    ],
+    values: [
+      '', // Username
+      '' // Lobby Code
+    ]
+  }),
+  methods: {
+    /**
+     * @param index used to point to the correct array entries, since there are multiple input fields
+     * 
+     * If the input field holds a value that is not '' then
+     * it is going to activate the small_label css class
+     */
+    updateCss: function(index: number): void {
+        (this.values[index]) ? this.small_labels[index] = true : this.small_labels[index] = false;
+    }
+  }
 })
 </script>
 
@@ -68,6 +86,30 @@ export default defineComponent({
     font-size: 4rem;
   }
 
+  #description {
+    color: gray;
+  }
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .label {
+    transform: scale(2.4) translateY(.9rem);
+    color: rgb(34, 34, 34);
+    pointer-events: none;
+    transition: all .2s;
+  }
+  .inp:focus + .label, .small_label {
+    position: relative;
+    font-weight: bold;
+    color: black;
+    transform: none;
+  }
+
   #lobby-join {
     margin-top: 2.5rem;
   }
@@ -84,17 +126,6 @@ export default defineComponent({
     margin-top: 2rem;
   }
 
-  .input-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1.5rem;
-  }
-
-  .input-wrapper label {
-    font-weight: bold;
-  }
-
   #contributors {
     color: gray;
     margin: 3rem 0;
@@ -105,6 +136,7 @@ export default defineComponent({
     margin-top: 3rem;
     margin-bottom: 1rem;
     border: black solid 1px;
+    background-color: black;
     border-radius: 1rem;
   }
 </style>
