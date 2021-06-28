@@ -54,6 +54,7 @@ export default defineComponent({
      * 
      * If the input field holds a value that is not '' then
      * it is going to activate the small_label css class
+     * so that the label stays up if something is in the input field
      */
     updateCss: function(index: number): void {
         (this.values[index]) ? this.small_labels[index] = true : this.small_labels[index] = false;
