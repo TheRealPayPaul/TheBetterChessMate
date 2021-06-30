@@ -36,6 +36,9 @@ export default defineComponent({
     }
   }),
   methods: {
+    /**
+     * Flips the states of the players colors
+     */
     changeColor: function() {
       console.log("change");
       if (this.P1.isBlack) {
