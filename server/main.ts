@@ -1,13 +1,20 @@
-import bird from "./testclass";
-import test from "./test.json";
-import { person } from "./types";
+import express from 'express'
+import http from 'http'
+import { Server } from 'socket.io'
+import path from 'path'
 
-let x: bird = new bird();
-x.what();
+const app = express()
+const server = http.createServer(app)
+const io = new Server(server)
+const port = 1234
 
-console.log(test);
-console.log("hi");
+// Point to the client dist folder
+app.use('/', express.static(path.join(__dirname, '..', 'client', 'dist')))
 
-function y(per: person) {
-    console.log(per);
-}
+io.on('connection', (socket) => {
+  console.log('a user coneccted')
+})
+
+server.listen(port, () => {
+  console.log('App listening to port: ' + port)
+})
