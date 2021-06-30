@@ -10,6 +10,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
+  name: 'PlayerInfo',
   props: [ 'username', 'isBlack' ],
   methods: {
     emitColorChange: function() {
