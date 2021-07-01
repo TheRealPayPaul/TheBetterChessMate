@@ -1,3 +1,12 @@
+# Coding Convention:
+```yaml
+  Klassen: 		PascalCase
+  Funktionen: 	camelCase
+  Variablen: 	snake_case
+  Konstanten: 	FAT_SNAKE_CASE
+```
+
+
 Client Menüs
 -MainMenu
 -LobbyScreen
