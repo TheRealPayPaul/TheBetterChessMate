@@ -5,3 +5,8 @@ import UserObject from "./UserObject";
 export interface userListFormat{
   [key:string]:UserObject
 }
+
+/** Represents a (key:string,string) relational pair */
+export interface cookieFormat {
+  [key:string]: string
+}
